@@ -12,6 +12,7 @@ This package provides:
 - Iterator methods for clean, Pythonic 1-based workflows
 - Field management for nodal, DOF, and element data
 - MATLAB-style patch function for mesh visualization (patch)
+- MATLAB-style fplot for symbolic function plotting (fplot)
 
 Philosophy:
 -----------
@@ -25,6 +26,7 @@ from .latex_array import LatexArray, la, display_labeled_latex
 from .mesh import Mesh, ELEMENT_TYPES
 from .one_array import OneArray
 from .patch import patch
+from .fplot import fplot
 
 # Version information
 __version__ = '0.1.1'
@@ -53,5 +55,6 @@ __all__ = [
     'Mesh', 'ELEMENT_TYPES',
     'OneArray',
     'patch',
+    'fplot',
     'version',
 ]

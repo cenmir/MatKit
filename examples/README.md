@@ -37,6 +37,17 @@ Working with `Mesh` and `OneArray` for natural 1-based indexing:
 
 **Key features**: 1-based indexing, natural iteration, DOF mapping
 
+### [examples_fplot.ipynb](notebooks/examples_fplot.ipynb)
+MATLAB-style symbolic function plotting with automatic parameter detection:
+- Basic function plotting with auto-detection
+- Custom ranges and styling
+- Polynomial, rational, and transcendental functions
+- Parametric curves (circles, spirals, Lissajous, roses)
+- Advanced curves (cycloids, damped oscillations)
+- High-frequency functions and resolution control
+
+**Key features**: Auto parameter detection, parametric plots, SymPy integration
+
 ### [display_labeled_latex_examples.ipynb](notebooks/display_labeled_latex_examples.ipynb)
 Displaying mathematical expressions with LaTeX formatting:
 - Scalars, vectors, and matrices
@@ -58,12 +69,15 @@ Displaying mathematical expressions with LaTeX formatting:
 | LaTeX output | `display_labeled_latex_examples.ipynb` |
 | Truss analysis | `examples_patch.ipynb`, `examples_mesh_onearray.ipynb` |
 | Displacement plots | `examples_patch.ipynb` |
+| Symbolic plotting | `examples_fplot.ipynb` |
+| Parametric curves | `examples_fplot.ipynb` |
 
 ## Learning Path
 
 1. **New to MatKit?** Start with `display_labeled_latex_examples.ipynb` for basic output
-2. **FEM visualization?** See `examples_patch.ipynb` for plotting meshes and fields
-3. **Building FEM code?** Use `examples_mesh_onearray.ipynb` for mesh management
+2. **Plotting functions?** See `examples_fplot.ipynb` for symbolic function plotting
+3. **FEM visualization?** See `examples_patch.ipynb` for plotting meshes and fields
+4. **Building FEM code?** Use `examples_mesh_onearray.ipynb` for mesh management
 
 ## Need Help?
 
