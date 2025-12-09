@@ -62,23 +62,25 @@ The renderer intelligently truncates large arrays to maintain readability.
 #### Example LaTeX Output
 
 Vectors with five or fewer elements are displayed as column vectors:
-$$
+
+```math
 \begin{bmatrix}
 1 \\
 2 \\
 3
 \end{bmatrix}
-$$
+```
 
 While larger matrices are automatically truncated with ellipsis notation:
-$$
+
+```math
 \begin{bmatrix}
 1 & 2 & 3 & \cdots & 10 \\
 11 & 12 & 13 & \cdots & 20 \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
 91 & 92 & 93 & \cdots & 100
 \end{bmatrix}
-$$
+```
 
 ### Pedagogical FEM Mesh Tools
 
