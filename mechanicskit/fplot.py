@@ -69,7 +69,7 @@ def fplot(*args, range=(-5, 5), ax=None, npoints=100, **kwargs):
 
     >>> import sympy as sp
     >>> import matplotlib.pyplot as plt
-    >>> from matkit import fplot
+    >>> from mechanicskit import fplot
     >>>
     >>> x = sp.Symbol('x')
     >>> fplot(sp.sin(x))  # Plots sin(x) over [-5, 5]

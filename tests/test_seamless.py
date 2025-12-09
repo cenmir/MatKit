@@ -6,7 +6,7 @@ This tests the truly seamless workflow - NO off-by-one errors!
 """
 
 import numpy as np
-from matkit import Mesh, OneArray
+from mechanicskit import Mesh, OneArray
 
 
 def test_onearray_basic():

@@ -3,7 +3,7 @@
 
 import numpy as np
 from sympy import symbols, cos, sin, Matrix, latex
-from matkit import display_labeled_latex
+from mechanicskit import display_labeled_latex
 
 # Create a SymPy matrix like in the notebook
 theta = symbols('theta')

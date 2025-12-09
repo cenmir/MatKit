@@ -42,7 +42,7 @@ def version():
 
     Examples
     --------
-    >>> import matkit as mk
+    >>> import mechanicskit as mk
     >>> mk.version()
     'MatKit v0.1.1'
     >>> mk.__version__

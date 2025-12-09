@@ -8,7 +8,7 @@ correct LaTeX generation for various input types.
 
 import pytest
 import numpy as np
-from matkit.latex_array import display_labeled_latex, LatexArray, la
+from mechanicskit.latex_array import display_labeled_latex, LatexArray, la
 
 
 class TestLatexArray:

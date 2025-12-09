@@ -7,7 +7,7 @@ class LatexArray:
     by implementing the `_repr_latex_` method.
 
     Usage:
-        from matkit import LatexArray, la
+        from mechanicskit import LatexArray, la
 
         # Function call syntax
         LatexArray(np.arange(10))
@@ -103,7 +103,7 @@ class LatexRenderer:
     A singleton helper class that enables both function call and pipe syntax.
 
     Usage:
-        from matkit import la
+        from mechanicskit import la
 
         # Function call syntax
         la(np.array([1, 2, 3]))

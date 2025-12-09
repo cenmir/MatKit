@@ -474,7 +474,7 @@ class Mesh:
         ...
 
         >>> # Works seamlessly with OneArray
-        >>> from matkit import OneArray
+        >>> from mechanicskit import OneArray
         >>> N = OneArray([100, 200, 300])
         >>> for iel in mesh.element_numbers():
         ...     print(f"Element {iel}: Force = {N[iel]}")
@@ -545,7 +545,7 @@ class Mesh:
         ...
 
         >>> # Perfect for assembly loops
-        >>> from matkit import OneArray
+        >>> from mechanicskit import OneArray
         >>> N = OneArray([100, 200, 300])
         >>> for iel, node_nums, coords in mesh.iter_elements():
         ...     force = N[iel]  # Seamless 1-based access!

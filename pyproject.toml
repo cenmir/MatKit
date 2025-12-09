@@ -3,12 +3,12 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "matkit"
+name = "mechanicskit"
 version = "0.1.0"
 authors = [
   { name="Mirza Cenanovic", email="mirza.cenanovic@gmail.com" },
 ]
-description = "Mathematical toolkit for engineering education: FEM with 1-based indexing, LaTeX rendering, and matrix operations."
+description = "Mechanics toolkit for engineering education: FEM with 1-based indexing, LaTeX rendering, visualization, and symbolic plotting."
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
@@ -25,15 +25,17 @@ classifiers = [
     "Topic :: Scientific/Engineering",
     "Topic :: Education",
 ]
-keywords = ["fem", "finite-element-method", "education", "pedagogical", "1-based-indexing", "mesh", "structural-mechanics", "linear-algebra", "latex-rendering"]
+keywords = ["mechanics", "fem", "finite-element-method", "education", "pedagogical", "1-based-indexing", "mesh", "structural-mechanics", "visualization", "fplot"]
 dependencies = [
     "numpy>=1.20",
+    "matplotlib>=3.0",
+    "sympy>=1.10",
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/cenmir/MatKit"
-"Bug Tracker" = "https://github.com/cenmir/MatKit/issues"
-"Documentation" = "https://github.com/cenmir/MatKit/blob/main/README.md"
+"Homepage" = "https://github.com/cenmir/mechanicskit"
+"Bug Tracker" = "https://github.com/cenmir/mechanicskit/issues"
+"Documentation" = "https://github.com/cenmir/mechanicskit/blob/main/README.md"
 
 [tool.setuptools]
-packages = ["matkit"]
+packages = ["mechanicskit"]

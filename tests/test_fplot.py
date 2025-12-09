@@ -16,7 +16,7 @@ except ImportError:
 
 pytestmark = pytest.mark.skipif(not HAS_SYMPY, reason="SymPy not installed")
 
-from matkit import fplot
+from mechanicskit import fplot
 
 
 class TestFplotBasic:
