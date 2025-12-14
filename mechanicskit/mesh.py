@@ -52,6 +52,31 @@ class Mesh:
     (1-based) and Python arrays (0-based) internally, allowing students
     to work with familiar mathematical conventions.
 
+    Quick Reference
+    ---------------
+    Get mesh data:
+        mesh.nodes              # All node coordinates (n_nodes, n_dim)
+        mesh.elements           # All element connectivity (n_elements, nodes_per_element) - 1-based
+        mesh.connectivity       # Alias for mesh.elements
+        mesh.n_nodes            # Number of nodes
+        mesh.n_elements         # Number of elements
+
+    Access specific nodes/elements:
+        mesh.get_node(3)                    # Get coordinates of node 3
+        mesh.get_element(2)                 # Get connectivity & coords of element 2
+        mesh.dofs_for_node(3)               # Get DOF indices for node 3
+
+    Iterate over mesh:
+        for inod, coords in mesh.iter_nodes():
+            # inod is 1-based node number, coords is coordinate array
+
+        for iel, node_nums, coords in mesh.iter_elements():
+            # iel is 1-based element number, node_nums are 1-based
+
+    Visualization with patch():
+        from mechanicskit import patch
+        patch('Faces', mesh.elements, 'Vertices', mesh.nodes, ...)
+
     The Indexing Translation Problem
     ---------------------------------
     In FEM textbooks, nodes are numbered 1, 2, 3, ... and degrees of freedom
@@ -78,26 +103,25 @@ class Mesh:
 
     Examples
     --------
-    >>> # Natural mathematical notation
-    >>> coords = [[0, 0], [1, 0], [0, 1], [1, 1]]
-    >>> connectivity = [[1, 2], [1, 3], [2, 3], [2, 4], [3, 4]]
-    >>> mesh = Mesh(coords, connectivity)  # Auto-detects ROD from 2 nodes
-    >>>
-    >>> # Or explicit element type
-    >>> mesh = Mesh(coords, connectivity, element_type='ROD')
-    >>>
-    >>> # Access node 3 directly (not index 2!)
-    >>> mesh.get_node(3)
-    array([0., 1.])
-    >>>
-    >>> # Get DOF indices for node 3 (returns 0-based for array access)
-    >>> dofs = mesh.dofs_for_node(3)  # Returns [4, 5] for 2D ROD
-    >>> u = np.zeros(2 * mesh.n_nodes)
-    >>> u[dofs] = [0.1, 0.2]  # Set displacement for node 3
-    >>>
-    >>> # Works with lists too
-    >>> coords = mesh.get_node([1, 3])  # Get multiple nodes
-    >>> dofs = mesh.dofs_for_node([1, 3])  # Get DOFs for multiple nodes
+    Create mesh:
+        >>> coords = [[0, 0], [1, 0], [0, 1], [1, 1]]
+        >>> connectivity = [[1, 2], [1, 3], [2, 3], [2, 4], [3, 4]]
+        >>> mesh = Mesh(coords, connectivity)
+
+    Access mesh data:
+        >>> mesh.nodes          # Node coordinates
+        >>> mesh.elements       # Element connectivity (1-based)
+        >>> mesh.get_node(3)    # Get node 3 coordinates
+        array([0., 1.])
+
+    Iterate:
+        >>> for inod, coords in mesh.iter_nodes():
+        ...     print(f"Node {inod}: {coords}")
+
+    DOFs:
+        >>> dofs = mesh.dofs_for_node(3)  # Returns [4, 5] for 2D ROD
+        >>> u = np.zeros(2 * mesh.n_nodes)
+        >>> u[dofs] = [0.1, 0.2]  # Set displacement for node 3
     """
 
     def __init__(self, node_coords, element_connectivity,
@@ -195,6 +219,54 @@ class Mesh:
         self._nodal_fields = {}    # Store nodal fields (1-indexed access)
         self._dof_fields = {}      # Store DOF fields (1-indexed access)
         self._element_fields = {}  # Store element fields (1-indexed access)
+
+    @property
+    def elements(self) -> np.ndarray:
+        """
+        Get all element connectivity with 1-based node numbers.
+
+        Returns
+        -------
+        connectivity : ndarray, shape (n_elements, nodes_per_element)
+            Element connectivity array where each row contains 1-based
+            node numbers for one element.
+
+        Examples
+        --------
+        >>> mesh.elements
+        array([[1, 2],
+               [1, 3],
+               [2, 3],
+               [2, 4],
+               [3, 4]])
+
+        >>> # Use with patch for visualization
+        >>> from mechanicskit import patch
+        >>> patch('Faces', mesh.elements, 'Vertices', mesh.nodes, ...)
+        """
+        return self._elements_0based + 1
+
+    @property
+    def connectivity(self) -> np.ndarray:
+        """
+        Get all element connectivity with 1-based node numbers.
+
+        Alias for mesh.elements. Returns the same data.
+
+        Returns
+        -------
+        connectivity : ndarray, shape (n_elements, nodes_per_element)
+            Element connectivity array where each row contains 1-based
+            node numbers for one element.
+
+        Examples
+        --------
+        >>> mesh.connectivity
+        array([[1, 2],
+               [1, 3],
+               [2, 3]])
+        """
+        return self.elements
 
     def _auto_detect_element_type(self) -> str:
         """Auto-detect element type from connectivity."""
