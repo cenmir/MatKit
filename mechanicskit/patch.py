@@ -15,6 +15,8 @@ from matplotlib.colors import Normalize
 from matplotlib.cm import get_cmap
 from mpl_toolkits.mplot3d.art3d import Line3DCollection, Poly3DCollection
 
+from . import colormap_utils
+
 
 def patch(*args, ax=None, return_mappable=False, **kwargs):
     """
@@ -601,6 +603,14 @@ def _create_line_patch(ax, Faces, Vertices, params, ndim, return_mappable=False)
     # Update axis limits
     ax.autoscale_view()
 
+    # Store state for automatic colorbar
+    if CData is not None:
+        colormap_utils._store_patch_state(
+            collection=lc,
+            cdata=np.asarray(CData),
+            ax=ax
+        )
+
     # Return collection with optional mappable for colorbar
     if return_mappable and mappable_info is not None:
         import matplotlib.cm as cm
@@ -697,7 +707,19 @@ def _create_2d_surface_patch(ax, Faces, Vertices, params, return_mappable=False)
             ax.add_collection(lc)
 
         ax.autoscale_view()
-        return tc
+
+        # Store state for automatic colorbar
+        if CData is not None:
+            colormap_utils._store_patch_state(
+                collection=tc,
+                cdata=np.asarray(CData),
+                ax=ax
+            )
+
+        if return_mappable:
+            return tc, tc
+        else:
+            return tc
     else:
         # Use PolyCollection for flat colors or uniform colors
         # Process face colors
@@ -731,6 +753,14 @@ def _create_2d_surface_patch(ax, Faces, Vertices, params, return_mappable=False)
 
         ax.add_collection(pc)
         ax.autoscale_view()
+
+        # Store state for automatic colorbar
+        if CData is not None:
+            colormap_utils._store_patch_state(
+                collection=pc,
+                cdata=np.asarray(CData),
+                ax=ax
+            )
 
         return pc
 
@@ -780,5 +810,13 @@ def _create_3d_surface_patch(ax, Faces, Vertices, params, return_mappable=False)
     ax.set_xlim(Vertices[:, 0].min(), Vertices[:, 0].max())
     ax.set_ylim(Vertices[:, 1].min(), Vertices[:, 1].max())
     ax.set_zlim(Vertices[:, 2].min(), Vertices[:, 2].max())
+
+    # Store state for automatic colorbar
+    if CData is not None:
+        colormap_utils._store_patch_state(
+            collection=pc,
+            cdata=np.asarray(CData),
+            ax=ax
+        )
 
     return pc

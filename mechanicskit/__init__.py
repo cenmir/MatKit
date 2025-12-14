@@ -27,6 +27,7 @@ from .mesh import Mesh, ELEMENT_TYPES
 from .one_array import OneArray
 from .patch import patch
 from .fplot import fplot
+from .colormap_utils import colorbar, cmap
 
 # Version information
 __version__ = '0.1.1'
@@ -56,5 +57,6 @@ __all__ = [
     'OneArray',
     'patch',
     'fplot',
+    'colorbar', 'cmap',
     'version',
 ]
