@@ -1,5 +1,5 @@
 """
-Tests for MatKit latex_array module
+Tests for MechanicsKit latex_array module
 ====================================
 
 Tests the display_labeled_latex function and LatexArray class to ensure

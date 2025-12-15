@@ -1,11 +1,11 @@
 # Version Update Workflow
 
-This document describes when and how to update MatKit's version number.
+This document describes when and how to update MechanicsKit's version number.
 
 ## Quick Reference
 
 ```bash
-# Update version in matkit/__init__.py
+# Update version in MechanicsKit/__init__.py
 __version__ = '0.1.2'  # Increment appropriately
 
 # Update CHANGELOG.md
@@ -30,7 +30,7 @@ git push && git push --tags
 - Updated README with clearer examples
 
 **What to do:**
-1. Increment patch number in `matkit/__init__.py`
+1. Increment patch number in `MechanicsKit/__init__.py`
 2. Move changes from `[Unreleased]` to new `[0.1.X]` section in CHANGELOG
 3. Commit with message: `"Release v0.1.X - Bug fixes"`
 
@@ -44,7 +44,7 @@ git push && git push --tags
 - Added SymPy integration
 
 **What to do:**
-1. Increment minor number, reset patch to 0 in `matkit/__init__.py`
+1. Increment minor number, reset patch to 0 in `MechanicsKit/__init__.py`
 2. Move changes from `[Unreleased]` to new `[0.X.0]` section in CHANGELOG
 3. Commit with message: `"Release v0.X.0 - New features"`
 
@@ -110,4 +110,4 @@ git push && git push --tags
 - Fixed interpolation bug in patch()
 ```
 
-Update `__version__ = '0.1.2'` in `matkit/__init__.py`
+Update `__version__ = '0.1.2'` in `MechanicsKit/__init__.py`

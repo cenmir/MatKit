@@ -289,7 +289,7 @@ def test_comparison_old_vs_new():
 def run_all_tests():
     """Run all seamless workflow tests."""
     print("\n" + "="*70)
-    print("MatKit Seamless Workflow Test Suite")
+    print("MechanicsKit Seamless Workflow Test Suite")
     print("Testing OneArray + Mesh Iterators")
     print("="*70)
 

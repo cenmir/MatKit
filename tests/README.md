@@ -1,6 +1,6 @@
-# MatKit Tests
+# MechanicsKit Tests
 
-This directory contains automated tests for the MatKit library.
+This directory contains automated tests for the MechanicsKit library.
 
 ## Running Tests
 
@@ -13,11 +13,11 @@ pip install pytest pytest-cov
 ### Run all tests
 
 ```bash
-# From the MatKit root directory
+# From the MechanicsKit root directory
 pytest
 
 # Or with coverage report
-pytest --cov=matkit --cov-report=html
+pytest --cov=MechanicsKit --cov-report=html
 ```
 
 ### Run specific test files

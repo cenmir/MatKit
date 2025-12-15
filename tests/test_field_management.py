@@ -7,7 +7,7 @@ to ensure 1-based indexing works correctly.
 """
 
 import sys
-sys.path.insert(0, '/home/mirza/python/MatKit')
+sys.path.insert(0, '/home/mirza/python/MechanicsKit')
 
 from mechanicskit.mesh import Mesh
 import numpy as np

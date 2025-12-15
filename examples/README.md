@@ -1,6 +1,6 @@
-# MatKit Examples
+# MechanicsKit Examples
 
-Interactive Jupyter notebook examples demonstrating MatKit features for finite element analysis.
+Interactive Jupyter notebook examples demonstrating MechanicsKit features for finite element analysis.
 
 ## Quick Start
 
@@ -9,7 +9,7 @@ Interactive Jupyter notebook examples demonstrating MatKit features for finite e
 pip install jupyter
 
 # Start Jupyter
-cd MatKit/examples/notebooks
+cd MechanicsKit/examples/notebooks
 jupyter notebook
 ```
 
@@ -74,7 +74,7 @@ Displaying mathematical expressions with LaTeX formatting:
 
 ## Learning Path
 
-1. **New to MatKit?** Start with `display_labeled_latex_examples.ipynb` for basic output
+1. **New to MechanicsKit?** Start with `display_labeled_latex_examples.ipynb` for basic output
 2. **Plotting functions?** See `examples_fplot.ipynb` for symbolic function plotting
 3. **FEM visualization?** See `examples_patch.ipynb` for plotting meshes and fields
 4. **Building FEM code?** Use `examples_mesh_onearray.ipynb` for mesh management
